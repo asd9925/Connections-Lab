@@ -1,0 +1,129 @@
+<html>
+    <head>
+        <title> I/O Project </title>
+         <link href="style.css" rel="stylesheet"/>
+    </head>
+    <body>
+        <br>
+        <h1> Interactive Soundboard </h1>
+        <h2> Interface Lab I/O Project </h2>
+        <h5>July 2025</h5>
+        <br>
+        <img src="Breadboard.png" alt="Photo of final breadboard">
+        <h4>An interactive device that uses push buttons to trigger different segments of an EDM song</h4>
+        <br>
+        <br>
+        <br>
+        <h1 class="left">Components</h1>
+        <ul>
+            <li>FX Soundboard/Jack</li>
+            <li>Push buttons</li>
+            <li>Breadboard</li>
+            <li>Male to male wires</li>
+            <li>Arduino</li>
+            <li>Speaker</li>
+            <li>Force sensing resistor (discarded)</li>
+            <li>MicroSD Breakout Board (discarded)</li>
+        </ul>
+        <div class="components-images">
+        <img class="soundboard" src="FXSoundboard.png" alt="Photo of an FX Soundboard">
+        <img class="arduino" src="Arduino.png" alt="Photo of an Arduino">
+        <img class="breadboard" src="Breadboard2.png" alt="Photo of a breadboard">
+        <img class="buttons" src="Buttons.jpg" alt="Photo of pushbuttons">
+        </div>
+        <div style="clear: both;"></div>
+        <br>
+        <h1 class="left">Process</h1>
+        <br>
+        <h3 class="attempt">Attempt 1</h3>
+        <p>My initial idea was for a user to press on a force sensing resistor and emit different audios through a MicroSD Breakout Board based on the force applied. I began by wiring my speaker and force resistant sensor to my breadboard. To test changing sound based on different pressures, I used the notes given in the ITP lab. I coded my Arduino to read the analog values of the force sensor and play the corresponding tone through the speaker.</p>
+        <p>Next I formatted my micro SD card to FAT 32 so it could be read by the Arduino using the software "SD Card Formatter." I then took the song "Ecstasy of Soul" by Zeds Dead, and clipped it into three segments.</p>
+        <p>I imported the three clips to my micro SD card, and inserted it into my Micro-SD Breakout Board. I then wired the breakout board pins to my Arduino pins, and wired the breakout board to ground and 3.3V. Next I used some example code given by Arduino to ensure that the Arduino was correctly reading my micro SD and its imported audio clips.</p>
+        <br>
+        <div class="attempt1-container">
+        <img class="attempt1" src="Attempt1.png" alt="Photo of Attempt 1 breadboard">
+        <video class="Attempt1" src="Attempt1.mov" controls>Attempt 1</video>
+        <img class="attempt1-2" src="Attempt1-2.png" alt="Photo of Attempt 1 breadboard">
+        </div>
+        <br>
+        <p>While I was able to get different tones to play through a standard speaker based on the amount of pressure applied, I realized the sensor couldn't connect to the custom audio in my MicroSD Breakout Board. It was time to pivot to an alternate audio device, so I began working with the FX Soundboard.</p>
+        <br>
+        <h3 class="attempt">Attempt 2</h3>
+        <p>I began the process of importing my .wav files onto the hard drive of my FX Soundboard, which unfortunately took about two hours before realizing there was a Mac update prohibiting this. I checked out a Windows computer and was successfully able to download my three .wav files to my soundboard.</p>
+        <p>I updated my code to reflect the change in method, which included getting rid of my SD card code, declaring digital pins for the soundboard, and updating my if statements to call the audio files from the FX Soundboard. I connected wires from the pins on my FX Soundboard to the pins on my Arduino, and connected the soundboard to power and ground.</p>
+        <p>I used Serial.println statements in my code for each if statement to ensure that the force sensor read to the amount of pressure the user was applying. I then connected my FX Soundboard to a JBL speaker using an AUX cord, and uploaded my code to my Arduino. Unfortunately, while my force sensor was correctly reading how much force the user applied, audio clips did not play out of the speaker unless the digital Arduino pins were moved to ground. It was time to pivot yet again.</p>
+        <br>
+        <div class="attempt2-container">
+        <img class="attempt2" src="Attempt2.png" alt="Photo of Attempt 2 breadboard">
+        <video src="*Attempt2.mov" controls>Attempt 2</video>
+        <img class="attempt2-2" src="Attempt2-2.png" alt="Photo of Attempt 2 breadboard">
+        </div>
+        <br> 
+        <h3 class="attempt">Attempt 3</h3>
+        <p>At this point, I was at a loss as to why my force sensor wouldn't connect to my FX Soundboard, so I decided to remove the force sensor logic and instead use three push buttons. This worked much better! I wired three buttons to my breadboard, each connected to a different audio clip. I updated my code to check each button pin, and if pressed, the Arduino sends a trigger to the FX Soundboard.</p> 
+        <p>When the first button is clicked, the beginning of the song will play, if the second button is clicked, the build up will play, and if the third button is clicked, the beat drop will play out of the soundboard. This worked well enough considering the small amount of time I had left to complete this project.</p>
+        <br>
+        <div class="attempt3-container">
+        <img class="attempt3" src="Breadboard.png" alt="Photo of Attempt 3 breadboard">
+        <video src="FinalDemo.mov" controls>Final Demo</video>
+        <img class="attempt3-2" src="Attempt3-2.png" alt="Photo of Attempt 3 breadboard">
+    </div>
+        <br>
+        <br>
+        <h1 class="left">Final Code</h1>
+        <br>
+        <p>Below is the Arduino code I used for the final product, where each of the three buttons trigger a different audio clip from the FX Soundboard.</p>
+        <pre><code>
+const int button1Pin = 12;
+const int button2Pin = 11;
+const int button3Pin = 10;
+void setup() {
+pinMode(button1Pin, INPUT);
+pinMode(button2Pin, INPUT);
+pinMode(button3Pin, INPUT);
+pinMode(2, OUTPUT);
+pinMode(3, OUTPUT);
+pinMode(4, OUTPUT);
+Serial.begin(9600);
+digitalWrite(2, HIGH);
+digitalWrite(3, HIGH);
+digitalWrite(4, HIGH);
+}
+void loop() {
+  if(digitalRead(button1Pin) == HIGH){
+    Serial.println("Playing pin 2 audio");
+    digitalWrite(2, LOW);
+    digitalWrite(3, HIGH);
+    digitalWrite(4, HIGH);
+    delay(100);
+  } 
+  if(digitalRead(button2Pin) == HIGH){
+    Serial.println("Playing pin 3 audio");
+    digitalWrite(3, LOW);
+    digitalWrite(2, HIGH);
+    digitalWrite(4, HIGH);
+    delay(100);
+  }
+  if(digitalRead(button3Pin) == HIGH){
+    Serial.println("Playing pin 4 audio");
+    digitalWrite(4, LOW);
+    digitalWrite(2, HIGH);
+    digitalWrite(3, HIGH);
+    delay(100);
+  }
+  delay(50);
+}
+        </code></pre>
+        <br>
+        <br>
+        <h1 class="left">Limitations</h1>
+        <br>
+        <p>If I knew originally that I would be using push buttons to trigger audio instead of a force sensor, I would have  liked for each button to trigger a different song as opposed to a different clip from the same song. This format would make more sense for my new input method. Unfortunately I did not have enough time to update my audio clips and re upload them to my FX Soundboard.</p> 
+        <p>I also wish that I could click a different button to have an audio clip stop playing a start a new one, but the FX Soundboard forces the full audio clip to play before a new one can begin.</p>
+        <p>Also if I had had more time, I would have loved to create a housing for my breadboard so that users can only see the push buttons. Additionally, given more time, I would have painted the album art onto this housing.</p>
+        <p>While I ran into many problems and bugs throughout this project, it ended up sort of working how I intended!</p>
+        <br>
+        <br>
+        <br>
+    </body>
+ </html>
