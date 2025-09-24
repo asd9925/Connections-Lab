@@ -1,0 +1,17 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Date": "April 18, 2003",
+        "Location": "Pier 33, Fisherman’s Wharf, San Francisco, California, USA",
+        "Details": "Amy was reported to be standing with two 'handlers' watching a musician on the pier. One of the 'handlers' handed her foreign coins to drop into the musician's case. Witnesses identified this woman as Amy Bradley, and once the 'handlers' realized she had been recognized, they grabbed her and ran. She stared pleadingly over her shoulder at the witnesses whilst being dragged away. Amy was wearing a nautical trimmed jacket, and her 'handlers' were wearing matching Hawaiian shirts and cheap sunglasses. One man was described as obese, white, and balding with red hair and a red beard. The other was short and thin, 5'6 at most, with dark, wavy, shoulder length hair and a dark complexion."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.4109, 37.8060]
+      }
+    }
+  ]
+}
