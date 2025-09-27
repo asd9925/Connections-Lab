@@ -1,0 +1,124 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "Date": "April 18, 2003",
+        "Location": "Pier 33, Fisherman’s Wharf, San Francisco, California, USA",
+        "Details": "Amy was reported to be standing with two 'handlers' watching a musician on the pier. One of the 'handlers' handed her foreign coins to drop into the musician's case. Witnesses identified this woman as Amy Bradley, and once the 'handlers' realized she had been recognized, they grabbed her and ran. She stared pleadingly over her shoulder at the witnesses whilst being dragged away. Amy was wearing a nautical trimmed jacket, and her 'handlers' were wearing matching Hawaiian shirts and cheap sunglasses. One man was described as obese, white, and balding with red hair and a red beard. The other was short and thin, 5'6 at most, with dark, wavy, shoulder length hair and a dark complexion."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-122.40449, 37.80738]
+      }
+    },
+
+
+    {
+        "type": "Feature",
+      "properties": {
+        "Date": "August, 1998",
+        "Location": "Playa Porto Marie, Curaçao",
+        "Details": "Amy was reported to be standing with two 'handlers', one of which identified as Alister Douglas, a primary person of interest responsible for the disappearance. It was reported by the witness, a Canadian scuba diver, that Amy was seen with two men walking toward him on the beach. Once she heard the witness speaking English, Amy began moving directly toward him. As she was about to speak, the handler identified as Alister Douglas quickly motioned Amy away, and gave the witness a menacing look. Amy and her handlers sat down to order drinks at the cafe on the beach, and the Canadian diver and his friend followed to do the same. Eventually the witnesses left before Amy and her handlers did. The Canadian diver did not report the incident until returning home to Canada and seeing Amy's face on an Unsolved Mysteries segment."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-69.0863, 12.2190]
+      }
+    },
+
+        {
+        "type": "Feature",
+      "properties": {
+        "Date": "2002 - 2008",
+        "Location": "Affordable Adult Vacations, Playa el Agua, Margarita Island, Venezuela",
+        "Details": "From the years 2002 to 2008, explicit photos of Amy could be found on the website of an escort resort in Venezuela, known as Affordable Adult Vacations. These photos were released to the public through the Dr. Phill Show on November 17th, 2005."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-63.8581, 11.1407]
+      }
+    },
+
+ {
+        "type": "Feature",
+      "properties": {
+        "Date": "March 24, 1998",
+        "Location": "Kortenaerstraat, Schottegat Bay, Curaçao",
+        "Details": "A month after Amy's disappearance the Bradley's returned to Curaçao, they were approached by a Curaçao cab driver. He claimed to have spotted Amy on the day of her disappearance running around the parking lot of the wharf looking for a phone. He described her green eyes, which were clearly depicted in the reward poster. He also claimed to have seen Amy in other locations on the island. It is likely that he was fabricating this story in hopes of receiving the award money."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-68.933672, 12.114947]
+      }
+    },
+
+     {
+        "type": "Feature",
+      "properties": {
+        "Date": "March 1, 2005",
+        "Location": "Broad Street, Bridgetown, Barbados",
+        "Details": "Amy was spotted by a tourist in the bathroom of a souvenir shop on Broad Street. She appeared to be distressed, and gave her name when the witness asked. After this encounter, Amy was seen again walking on the sidewalk a block away from Broad Street, completely surrounded by four men. One of these men was identified as the same man she was spotted with in San Francisco: obese, white, and balding with red hair and a red beard."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-59.620, 13.110]
+      }
+    },
+
+    {
+        "type": "Feature",
+      "properties": {
+        "Date": "January, 2007",
+        "Location": "The Mill, Noord, Aruba",
+        "Details": "Amy was sighted at The Mill Restaurant having dinner with Alfred Cotten and three other men. In March of 2016, Cotten and his wife pleaded guilty to promoting prostitution for running a sex tourism travel agency that sets customers up with sex workers in the Dominican Republic. It is believed that he was the other man seen with Amy and Alister Douglas at Porto Marie, Curaçao, and San Francisco. He was also believed to be active in the Affordable Adult Vacations website that released photos of Amy in 2002."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-70.047104, 12.564239]
+      }
+    },
+
+     {
+        "type": "Feature",
+      "properties": {
+        "Date": "January, 1999",
+        "Location": "Stelaris Hotel, Willemstad, Curaçao",
+        "Details": "Chief Petty Officer William Hefner from the US Chandler went into the hotel, which burnt to the ground a year and a half later, to grab a beer. He was sitting at the bar and spotted two women sitting together at a table. The Caucasian woman walked up to him and stated that her name is Amy Bradley and that she needs help and was being held against her will. He did not recognize her as a missing person, but did recognize that she was from the United States. Two men approached Amy and sent her upstairs. He did not come forward until July 2001 when he saw a photo of her on the cover of People Magazine. He did not report the incident at the time because as the hotel was off limits to US military personnel, his career would have been in jeopardy and his pension would have been significantly cut. Hefner has passed FBI polygraph tests."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-68.93391, 12.11017]
+      }
+    },
+
+{
+        "type": "Feature",
+      "properties": {
+        "Date": "2005",
+        "Location": "Cuco's Lounge, Curaçao",
+        "Details": "It has been reported that Amy was often seen at this small club. There have been unconfirmed reported that the owners of the Stelaris Hotel were also operating this club at the time. The witness was unable to provide exact dates and further information."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-68.90420, 12.10928]
+      }
+    },
+
+{
+        "type": "Feature",
+      "properties": {
+        "Date": "March 24, 1998",
+        "Location": "Upper Deck, Rhapsody of the Seas, Willemstad Canal, Curaçao",
+        "Details": "Amy was last seen by her family on the balcony of their suite between 5:15 and 5:30 AM, with the ship docking at 6 AM. Witnesses have testified that they saw her standing on the upper deck of the ship with Alister Douglas, minutes before she disappeared. Alister Douglas was seen giving Amy a drink that contained a dark liquid. The witnesses also testified that Amy and Alister Douglas arrived in the glass elevator at the same time, and that he was seen leaving the upper deck in the glass elevator, alone."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [-68.93179, 12.11179]
+      }
+    }
+
+  ]
+}
+
