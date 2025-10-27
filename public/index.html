@@ -1,15 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anna's Books</title>
+    <title>Confessions</title>
 </head>
+
 <body>
-    <h1>Anna's Bookshop</h1>
-    <h2>To view information about some books in my shop, add '/data' to the url.</h2>
-    <h2>To view information about a specific book in my shop, remove 'data', and add '/books/**book title here**'' to the url.</h2>
-    <h3>In place of a space you will need to add %20. Remember it is also case sensitive!</h3>
-    <h3>Example: http://localhost:3000/books/Never%20Lie</h3>
+    <h1>Confessions.</h1>
+
+    <!-- User input box and submit button goes here -->
+    <div class="inputs">
+        <textarea id="confession-input" placeholder="Type your confession here"></textarea>
+        <button id="confession-submit">Submit your anonymous confession</button>
+    </div>
+
+    <!-- User confessions go here -->
+    <div id="confession-responses"></div>
+
+    <link href="style.css" rel="stylesheet">
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src="app.js"></script>
 </body>
+
 </html>

@@ -1,88 +1,80 @@
-let express = require('express');
+// let express = require('express');
+//Install and load lowdb
+import express from 'express';
+import { Low } from 'lowdb';
+import { JSONFile } from 'lowdb/node';
+import bodyParser from 'body-parser';
+
+//Initialize the express 'app' object
 let app = express();
 
-let books = {
-    "data": [
-        {
-            title: "Lessons in Chemistry",
-            author: "Bonnie Garmus",
-            datePublished: "April 5, 2022"
-        },
-        {
-            title: "The Butterfly Garden",
-            author: "Dot Hutchison",
-            datePublished: "June 1, 2016"
-        },
-        {
-            title: "Cleopatra and Frankenstein",
-            author: "Coco Mellors",
-            datePublished: "February 8, 2022"
-        },
-        {
-            title: "The Housemaid",
-            author: "Freida McFadden",
-            datePublished: "April 26, 2022"
-        },
-        {
-            title: "The Midnight Library",
-            author: "Matt Haig",
-            datePublished: "September 29, 2020"
-        },
-        {
-            title: "Pineapple Street",
-            author: "Jenny Jackson",
-            datePublished: "March 7, 2023"
-        },
-        {
-            title: "Tell Me Lies",
-            author: "Carola Lovering",
-            datePublished: "June 12, 2018"
-        },
-        {
-            title: "Verity",
-            author: "Colleen Hoover",
-            datePublished: "October 5, 2021"
-        },
-        {
-            title: "Carrie Soto Is Back",
-            author: "Taylor Jenkins Reid",
-            datePublished: "August 30, 2022"
-        },
-        {
-            title: "Never Lie",
-            author: "Freida McFadden",
-            datePublished: "September 19, 2022"
-        }
-    ]
-}
+//Connect to database
+let defaultData = { confessionsData: [] };
+let adapter = new JSONFile('db.json');
+let db = new Low(adapter,defaultData);
 
-// app.get('/', (request,response) => {
-//     response.send("Have a nice day");
-// });
-
+//Initialize the express 'app' object 2
 app.use('/', express.static('public'));
 
-app.listen(3000,() => {
-    console.log("App is listening at localhost:3000");
+//To parse JSON
+app.use(express.json());
+
+//Route listening for a post request
+app.post('/newData', (request,response) => {
+    console.log(request.body);
+    let obj = {
+        msg: request.body.msg
+    }
+//Add value to database
+db.data.confessionsData.push(obj);
+db.write()
+.then(() => {
+    response.json({task: "success"});
+    })
 });
 
-app.get('/data', (request,response) => {
-    response.json(books);
+app.get('/getData', (request,response) => {
+    //Load values/fetch from database
+    db.read()
+    .then(() => {
+        let obj = {data: db.data.confessionsData}
+        response.json(obj);
+    });
 });
 
-app.get('/books/:sign', (request,response) => {
-    console.log(request.params.sign);
-    let user_sign = request.params.sign;
-    let user_object;
-    for(let i=0; i<books.data.length;i++){
-        if(user_sign == books.data[i].title){
-            user_object = books.data[i];
-        }
-    }
-    console.log(user_object); //check it's working
-    if(user_object){
-        response.json(user_object);
-    }else{
-        response.json({status: "info not present"});
-    }
+
+//Initialize HTTP server
+let http = import('http');
+let server = http.createServer(app);
+let port = process.env.PORT || 3000;
+server.listen(port, () => {
+    console.log('Server listening at port:' + port);
 });
+
+//Initialize socket.io
+let io = require('socket.io');
+io = new io.Server(server);
+
+//Listen for individual clients to connect
+io.sockets.on('connection', function (socket) {
+    console.log('A new client has entered:' + socket.id);
+
+    //Listen for a message named 'msg' from this client
+    socket.on('msg', function (data) {
+        console.log('Received a msg event');
+        console.log(data);
+
+        //Send a response to ALL clients
+        io.sockets.emit('msg', data);
+    });
+
+    //Listen for this client to disconnect
+    socket.on('disconnect', function () {
+        console.log('A client has disconnected: ' + socket.id);
+    });
+});
+
+
+// app.listen(3000,() => {
+//     console.log('listening at localhost:3000');
+// });
